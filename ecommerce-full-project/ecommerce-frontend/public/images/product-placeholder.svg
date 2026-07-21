@@ -1,0 +1,10 @@
+﻿<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#f8fafc"/>
+  <rect x="160" y="170" width="880" height="460" rx="32" fill="#e2e8f0"/>
+  <rect x="220" y="230" width="760" height="280" rx="24" fill="#cbd5e1"/>
+  <rect x="450" y="560" width="300" height="50" rx="12" fill="#94a3b8"/>
+  <circle cx="460" cy="420" r="36" fill="#cbd5e1"/>
+  <rect x="580" y="400" width="120" height="120" rx="20" fill="#cbd5e1"/>
+  <path d="M350 330L440 330C452.702 330 463 340.298 463 353L463 407C463 419.702 452.702 430 440 430L350 430C337.298 430 327 419.702 327 407L327 353C327 340.298 337.298 330 350 330Z" fill="#e2e8f0"/>
+  <text x="50%" y="85%" dominant-baseline="middle" text-anchor="middle" fill="#475569" font-family="Inter, sans-serif" font-size="56">Product Image</text>
+</svg>
