@@ -45,6 +45,15 @@ npm run seed     # optional: creates admin/customer demo accounts + sample data
 npm run dev       # starts on http://localhost:5000
 ```
 
+## MongoDB Atlas Setup
+
+1. Create a cluster in MongoDB Atlas.
+2. In Atlas, add your current IP address under Network Access.
+3. Create a database user under Database Access.
+4. Copy the Atlas Node.js connection string and paste it into `.env` as `MONGO_URI`.
+5. Replace `<username>`, `<password>`, and the database name in the URI.
+6. Leave `ALLOW_LOCAL_DB_FALLBACK=false` unless you intentionally want the app to try a local MongoDB server.
+
 ## Environment Variables
 
 | Variable | Description |
@@ -52,6 +61,8 @@ npm run dev       # starts on http://localhost:5000
 | `NODE_ENV` | `development` or `production` |
 | `PORT` | Server port (default 5000) |
 | `MONGO_URI` | MongoDB Atlas connection string |
+| `ALLOW_LOCAL_DB_FALLBACK` | Set to `true` only if you want to fall back to a local MongoDB server |
+| `LOCAL_MONGO_URI` | Optional local MongoDB URI used when local fallback is enabled |
 | `JWT_SECRET` | Long random secret for signing tokens |
 | `JWT_EXPIRES_IN` | Token lifetime, e.g. `7d` |
 | `CLIENT_URL` | Deployed frontend URL (for CORS) |

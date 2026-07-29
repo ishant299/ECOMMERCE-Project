@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const getLoginErrorMessage = (err) => {
+  if (!err.response) {
+    return 'The backend API is unavailable right now. Start the backend and verify the MongoDB Atlas connection, then try again.';
+  }
+
+  return err.response.data?.message || 'Login failed. Please try again.';
+};
+
 const Login = () => {
   const { login, user } = useAuth();
   const navigate = useNavigate();
@@ -24,7 +32,7 @@ const Login = () => {
       await login(form.credential, form.password);
       navigate(location.state?.from?.pathname || '/home');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please try again.');
+      setError(getLoginErrorMessage(err));
     } finally {
       setLoading(false);
     }
