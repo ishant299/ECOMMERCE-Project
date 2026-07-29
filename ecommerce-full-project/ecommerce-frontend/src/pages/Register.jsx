@@ -41,6 +41,11 @@ const Register = () => {
         );
       }
 
+      if (!err.response) {
+        setError('The server is unavailable right now. Please start the backend API and try again.');
+        return;
+      }
+
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {
       setLoading(false);
