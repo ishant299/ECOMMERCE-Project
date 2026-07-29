@@ -75,7 +75,12 @@ app.use(errorHandler);
 const PORT = Number(process.env.PORT) || 5000;
 
 const startServer = async () => {
-  await connectDB();
+  try {
+    await connectDB();
+  } catch (error) {
+    console.warn('Database initialization skipped:', error.message || error);
+  }
+
   try {
     await initSampleData();
   } catch (error) {
