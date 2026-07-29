@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const defaultLocalUri = 'mongodb://127.0.0.1:27017/ecommerce';
@@ -16,18 +17,18 @@ const connectDB = async () => {
 
     try {
       const conn = await mongoose.connect(mongoUri, {
-        serverSelectionTimeoutMS: 3000,
+        serverSelectionTimeoutMS: 5000,
       });
 
       console.log("✅ MongoDB Connected:", conn.connection.host);
       return conn;
     } catch (error) {
-     console.error("Full MongoDB Error:");
-     console.error(error);
-}
+      console.error("MongoDB connection attempt failed:", mongoUri);
+      console.error(error);
+    }
   }
 
-  return null;
+  throw new Error('Unable to connect to MongoDB using any configured URI.');
 };
 
 module.exports = connectDB;

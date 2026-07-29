@@ -74,12 +74,13 @@ app.use(errorHandler);
 
 const PORT = Number(process.env.PORT) || 5000;
 
+if (!process.env.JWT_SECRET) {
+  console.error('FATAL: JWT_SECRET is not set. Please add JWT_SECRET to your .env file.');
+  process.exit(1);
+}
+
 const startServer = async () => {
-  try {
-    await connectDB();
-  } catch (error) {
-    console.warn('Database initialization skipped:', error.message || error);
-  }
+  await connectDB();
 
   try {
     await initSampleData();
