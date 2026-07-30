@@ -28,11 +28,19 @@ const initSampleData = async () => {
     });
   }
 
-  let categories = await Category.find();
-  if (categories.length === 0) {
-    categories = await Category.insertMany(categoryData);
-    console.log('Sample categories created');
-  }
+ let categories = await Category.find();
+if (categories.length === 0) {
+  const categoriesWithSlugs = categoryData.map((cat) => ({
+    ...cat,
+    slug: cat.name
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, ''),
+  }));
+  categories = await Category.insertMany(categoriesWithSlugs);
+  console.log('Sample categories created');
+}
 
   const sampleProducts = productData(categories, existingAdmin._id);
   const existingProductNames = new Set((await Product.find({}, 'name')).map((product) => product.name));
