@@ -1,36 +1,72 @@
-const placeholderCategoryImage = '/images/category-placeholder.svg';
-const placeholderProductImage = '/images/product-placeholder.svg';
+const categoryImages = [
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1504280390367-361c6d9f38f0?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
+];
+
+const productImages = [
+  'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1495446815901-8732e29db7f4?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1504280390367-361c6d9f38f0?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1608571424352-9261a1e1e7c6?auto=format&fit=crop&w=1200&q=80',
+];
 
 const categoryData = [
   {
     name: 'Electronics',
     description: 'Phones, laptops, audio gear, and everyday tech essentials',
-    image: placeholderCategoryImage,
+    image: categoryImages[0],
   },
   {
     name: 'Clothing',
     description: 'Stylish apparel for work, leisure, and travel',
-    image: placeholderCategoryImage,
+    image: categoryImages[1],
   },
   {
     name: 'Home & Kitchen',
     description: 'Cookware, decor, and useful upgrades for modern homes',
-    image: placeholderCategoryImage,
+    image: categoryImages[2],
   },
   {
     name: 'Books',
     description: 'Best-selling books, guides, and inspiring reads',
-    image: placeholderCategoryImage,
+    image: categoryImages[3],
   },
   {
     name: 'Sports & Outdoors',
     description: 'Gear for fitness, adventure, and active living',
-    image: placeholderCategoryImage,
+    image: categoryImages[4],
   },
   {
     name: 'Beauty & Wellness',
     description: 'Care essentials for skin, self-care, and wellbeing',
-    image: placeholderCategoryImage,
+    image: categoryImages[5],
   },
 ];
 
@@ -46,7 +82,7 @@ const productData = (categories, adminId) => {
       brand: 'SoundWave',
       ratingsAverage: 4.6,
       ratingsCount: 182,
-      images: [placeholderProductImage],
+      images: [productImages[0]],
       description:
         'Active noise cancellation, soft over-ear cushions, and all-day battery life for immersive listening.',
       createdBy: adminId,
@@ -59,7 +95,7 @@ const productData = (categories, adminId) => {
       brand: 'TechCo',
       ratingsAverage: 4.5,
       ratingsCount: 230,
-      images: [placeholderProductImage],
+      images: [productImages[1]],
       description:
         'Sleek display, responsive camera, and fast charging for everything you need on the go.',
       createdBy: adminId,
@@ -72,7 +108,7 @@ const productData = (categories, adminId) => {
       brand: 'PixelStone',
       ratingsAverage: 4.7,
       ratingsCount: 94,
-      images: [placeholderProductImage],
+      images: [productImages[2]],
       description:
         'A lightweight laptop for creative work, multitasking, and standout performance.',
       createdBy: adminId,
@@ -85,7 +121,7 @@ const productData = (categories, adminId) => {
       brand: 'AeroFit',
       ratingsAverage: 4.4,
       ratingsCount: 121,
-      images: [placeholderProductImage],
+      images: [productImages[3]],
       description:
         'Track fitness, notifications, and sleep insights with a bright always-on display.',
       createdBy: adminId,
@@ -98,7 +134,7 @@ const productData = (categories, adminId) => {
       brand: 'EchoBeat',
       ratingsAverage: 4.5,
       ratingsCount: 167,
-      images: [placeholderProductImage],
+      images: [productImages[4]],
       description:
         'Room-filling sound, durable design, and long battery life for indoor and outdoor listening.',
       createdBy: adminId,
@@ -111,7 +147,7 @@ const productData = (categories, adminId) => {
       brand: 'UrbanWear',
       ratingsAverage: 4.3,
       ratingsCount: 112,
-      images: [placeholderProductImage],
+      images: [productImages[5]],
       description: 'Breathable cotton, modern fit, and easy layering for day-to-day comfort.',
       createdBy: adminId,
     },
@@ -123,7 +159,7 @@ const productData = (categories, adminId) => {
       brand: 'UrbanWear',
       ratingsAverage: 4.5,
       ratingsCount: 78,
-      images: [placeholderProductImage],
+      images: [productImages[6]],
       description: 'Durable denim with a classic cut, perfect for layering across seasons.',
       createdBy: adminId,
     },
@@ -135,7 +171,7 @@ const productData = (categories, adminId) => {
       brand: 'North Thread',
       ratingsAverage: 4.4,
       ratingsCount: 85,
-      images: [placeholderProductImage],
+      images: [productImages[7]],
       description:
         'A breathable tailored shirt with a polished look that works from office to weekend.',
       createdBy: adminId,
@@ -148,7 +184,7 @@ const productData = (categories, adminId) => {
       brand: 'MotionLab',
       ratingsAverage: 4.3,
       ratingsCount: 72,
-      images: [placeholderProductImage],
+      images: [productImages[8]],
       description:
         'Relaxed comfort, stretch fabric, and utility pockets for all-day versatility.',
       createdBy: adminId,
@@ -161,7 +197,7 @@ const productData = (categories, adminId) => {
       brand: 'Carry House',
       ratingsAverage: 4.6,
       ratingsCount: 109,
-      images: [placeholderProductImage],
+      images: [productImages[9]],
       description:
         'A refined backpack with laptop storage, travel-ready comfort, and timeless styling.',
       createdBy: adminId,
@@ -174,7 +210,7 @@ const productData = (categories, adminId) => {
       brand: 'HomeChef',
       ratingsAverage: 4.2,
       ratingsCount: 53,
-      images: [placeholderProductImage],
+      images: [productImages[10]],
       description: 'A versatile set for every kitchen, with easy cleanup and durable coating.',
       createdBy: adminId,
     },
@@ -186,7 +222,7 @@ const productData = (categories, adminId) => {
       brand: 'BrightLite',
       ratingsAverage: 4.3,
       ratingsCount: 67,
-      images: [placeholderProductImage],
+      images: [productImages[11]],
       description: 'Warm light, adjustable neck, and sturdy design for every workspace.',
       createdBy: adminId,
     },
@@ -198,7 +234,7 @@ const productData = (categories, adminId) => {
       brand: 'KitchenNova',
       ratingsAverage: 4.7,
       ratingsCount: 143,
-      images: [placeholderProductImage],
+      images: [productImages[12]],
       description:
         'Bake, roast, crisp, and reheat with one countertop appliance built for family meals.',
       createdBy: adminId,
@@ -211,7 +247,7 @@ const productData = (categories, adminId) => {
       brand: 'Casa Form',
       ratingsAverage: 4.5,
       ratingsCount: 88,
-      images: [placeholderProductImage],
+      images: [productImages[13]],
       description:
         'Elegant matte-finish plates and bowls that elevate both everyday meals and hosting.',
       createdBy: adminId,
@@ -224,7 +260,7 @@ const productData = (categories, adminId) => {
       brand: 'CalmNest',
       ratingsAverage: 4.4,
       ratingsCount: 91,
-      images: [placeholderProductImage],
+      images: [productImages[14]],
       description:
         'Soft ambient mist and essential oil blends designed to make any room feel relaxing.',
       createdBy: adminId,
@@ -237,7 +273,7 @@ const productData = (categories, adminId) => {
       brand: 'Pearson',
       ratingsAverage: 4.8,
       ratingsCount: 310,
-      images: [placeholderProductImage],
+      images: [productImages[15]],
       description: 'A software development classic for better design, testing, and career growth.',
       createdBy: adminId,
     },
@@ -249,7 +285,7 @@ const productData = (categories, adminId) => {
       brand: 'Penguin',
       ratingsAverage: 4.7,
       ratingsCount: 520,
-      images: [placeholderProductImage],
+      images: [productImages[16]],
       description: 'Proven strategies to build better routines and make small changes stick.',
       createdBy: adminId,
     },
@@ -261,7 +297,7 @@ const productData = (categories, adminId) => {
       brand: 'Grand Central',
       ratingsAverage: 4.6,
       ratingsCount: 188,
-      images: [placeholderProductImage],
+      images: [productImages[17]],
       description:
         'A practical guide to focused work, better concentration, and meaningful productivity.',
       createdBy: adminId,
@@ -274,7 +310,7 @@ const productData = (categories, adminId) => {
       brand: 'Paper Peak',
       ratingsAverage: 4.5,
       ratingsCount: 64,
-      images: [placeholderProductImage],
+      images: [productImages[18]],
       description:
         'A guided journal filled with prompts for reflection, growth planning, and daily clarity.',
       createdBy: adminId,
@@ -287,7 +323,7 @@ const productData = (categories, adminId) => {
       brand: 'Sprint',
       ratingsAverage: 4.4,
       ratingsCount: 146,
-      images: [placeholderProductImage],
+      images: [productImages[19]],
       description: 'Responsive cushioning, traction grip, and comfort for daily runs and gym sessions.',
       createdBy: adminId,
     },
@@ -299,7 +335,7 @@ const productData = (categories, adminId) => {
       brand: 'FlexForm',
       ratingsAverage: 4.5,
       ratingsCount: 133,
-      images: [placeholderProductImage],
+      images: [productImages[20]],
       description:
         'A thick anti-slip mat designed for yoga, stretching, and home workout stability.',
       createdBy: adminId,
@@ -312,7 +348,7 @@ const productData = (categories, adminId) => {
       brand: 'PeakTrail',
       ratingsAverage: 4.3,
       ratingsCount: 76,
-      images: [placeholderProductImage],
+      images: [productImages[21]],
       description:
         'Leakproof stainless steel bottle that keeps drinks cold during commutes, hikes, and workouts.',
       createdBy: adminId,
@@ -325,7 +361,7 @@ const productData = (categories, adminId) => {
       brand: 'WildHarbor',
       ratingsAverage: 4.6,
       ratingsCount: 58,
-      images: [placeholderProductImage],
+      images: [productImages[22]],
       description:
         'Lightweight, weather-ready shelter built for weekend escapes and easy travel packing.',
       createdBy: adminId,
@@ -338,7 +374,7 @@ const productData = (categories, adminId) => {
       brand: 'PureGlow',
       ratingsAverage: 4.5,
       ratingsCount: 98,
-      images: [placeholderProductImage],
+      images: [productImages[23]],
       description: 'Gentle essentials for healthy skin, including cleanser, toner, and moisturizer.',
       createdBy: adminId,
     },
@@ -350,7 +386,7 @@ const productData = (categories, adminId) => {
       brand: 'Lumora',
       ratingsAverage: 4.4,
       ratingsCount: 154,
-      images: [placeholderProductImage],
+      images: [productImages[24]],
       description:
         'A brightening serum that helps support an even-looking tone and healthy glow.',
       createdBy: adminId,
@@ -363,7 +399,7 @@ const productData = (categories, adminId) => {
       brand: 'Soul Ritual',
       ratingsAverage: 4.6,
       ratingsCount: 81,
-      images: [placeholderProductImage],
+      images: [productImages[25]],
       description:
         'A self-care set with bath salts, candles, and body care for stress-free evenings.',
       createdBy: adminId,
@@ -376,7 +412,7 @@ const productData = (categories, adminId) => {
       brand: 'SmileGrid',
       ratingsAverage: 4.5,
       ratingsCount: 97,
-      images: [placeholderProductImage],
+      images: [productImages[26]],
       description:
         'A two-brush set with timer modes and soft bristles for a cleaner, more comfortable routine.',
       createdBy: adminId,
